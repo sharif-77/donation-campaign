@@ -1,8 +1,15 @@
+import { useNavigate } from "react-router-dom";
+
 const HomeCard = ({ data }) => {
-  const { category_bg,card_bg,text_color } = data;
+  const {id,category_bg,card_bg,text_color } = data;
+  const navigate=useNavigate()
+  const handleNavigate =()=>{
+    navigate(`/details/${id}`)
+
+  }
   return (
     <div>
-      <div style={
+      <div onClick={handleNavigate} style={
         {
             background: `${card_bg}`
 
@@ -20,7 +27,8 @@ const HomeCard = ({ data }) => {
               borderRadius:5,
               fontWeight:'bold',
               width:'max-content',
-              color:`${text_color}`
+              color:`${text_color}`,
+              textTransform:'capitalize'
              
             }}
           >

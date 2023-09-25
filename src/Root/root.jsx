@@ -4,6 +4,7 @@ import Error from "../components/Error/Error";
 import Home from "../components/Home/Home";
 import Donations from "../components/Donations/Donations";
 import Statistics from "../components/Statistics/Statistics";
+import CardDetails from "../components/CardDetails/CardDetails";
 
 const root = createBrowserRouter([
   {
@@ -14,6 +15,11 @@ const root = createBrowserRouter([
         {
             path:'/',
             element:<Home/>,
+            loader:()=>fetch(`/public/data.json`)
+        },
+        {
+            path:'/details/:id',
+            element:<CardDetails/>,
             loader:()=>fetch(`/public/data.json`)
         },
         {
