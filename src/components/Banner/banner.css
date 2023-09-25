@@ -1,0 +1,9 @@
+.bg-img{
+    position: absolute;
+    text-align: center;
+    padding: 130px 0px;
+    width: 100% !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background: linear-gradient(0deg, rgba(221, 220, 220), rgba(254, 251, 251, 0.86)), url('/src/assets/images.jpg');
+  }
