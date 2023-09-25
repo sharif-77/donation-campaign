@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
-import './CardDetails.css'
-import swal from 'sweetalert'
+import './CardDetails.css';
+import swal from 'sweetalert';
+import { setDataToLS } from "../../utils/localstorage";
 const CardDetails = () => {
     const allData=useLoaderData()
     const {id}=useParams()
@@ -15,6 +16,7 @@ const CardDetails = () => {
 
     const handleDonate =()=>{
         swal("Good job!", "Donate Completed", "success");
+        setDataToLS(id)
 
     }
     console.log(allData,id);

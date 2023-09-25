@@ -31,7 +31,7 @@
       "category_bg": "#79c23f33",
       "card_bg": "#79c23f26",
       "text_color": "#79C23F",
-      "btn-bg": "#79C23F",
+      "btn_bg": "#79C23F",
       "description": "Good clothing not only offers protection and comfort but also serves as a means of self-expression. It reflects personal style, cultural identity, and individuality. Quality garments are durable, sustainable, and environmentally conscious, promoting both confidence and responsible fashion choices, while enhancing one's overall appearance and well-being.",
       "price": 799
     },
@@ -43,7 +43,7 @@
       "category_bg": "#f8714733",
       "card_bg": "#f8714726 ",
       "text_color": "#F87147",
-      "btn-bg": "#F87147",
+      "btn_bg": "#F87147",
       "description": "Good food is essential for nourishing the body and mind. It's nutritious, flavorful, and diverse, providing essential vitamins, minerals, and energy. A balanced diet supports overall health, boosts immunity, and reduces the risk of chronic diseases. It also brings joy and cultural richness to our lives, fostering a sense of community and connection.",
       "price": 399
     },
