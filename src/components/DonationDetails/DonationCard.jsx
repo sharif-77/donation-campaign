@@ -26,7 +26,7 @@ const DonationCard = ({ data }) => {
           >
             {category}
           </p>
-          <h2 className="card-title text-base ">{title}</h2>
+          <h2 style={{ color: `${text_color}` }} className="card-title text-base ">{title}</h2>
           <p style={{ color: `${text_color}` }} className="font-bold">
             ${price}.00
           </p>
