@@ -31,7 +31,7 @@ const DonationDetails = () => {
           clicked && "hidden"
         }`}
       >
-        {donateData.length > 4 && (
+        {donateData.length >= 4 && (
           <button
             onClick={() => setClicked(true)}
             className="m-auto btn bg-green-600 text-white font-bold py-2 px-5"
@@ -40,6 +40,11 @@ const DonationDetails = () => {
           </button>
         )}
       </div>
+
+      <div className=" flex justify-center items-center h-[60vh] text-3xl font-bold">
+        {donateData.length<=0&& <p>You haven't donate Yet</p>}
+      </div>
+
     </div>
   );
 };

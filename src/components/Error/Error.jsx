@@ -1,11 +1,10 @@
-import { Link } from 'react-router-dom';
 
 const Error = () => {
     return (
-        <div>
-            <Link to='/' className=''>Go Home</Link>
+        <div className='w-4/5 m-auto flex justify-center items-center h-screen'>
+            
 
-            <p>404</p>
+            <p className="text-4xl font-bold">404 Page not Found</p>
         </div>
     );
 };

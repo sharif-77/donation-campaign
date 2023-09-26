@@ -1,68 +1,61 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
 import { useEffect, useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
-import { PieChart, Pie, Cell, Legend, Tooltip } from 'recharts';
+import { PieChart, Pie, Cell, Legend, Tooltip } from 'recharts'; 
 import { getDataFromLS } from '../../utils/localstorage';
-const Statistics = () => {
-
-    const allData = useLoaderData();
-  const [donateData, setDonateData] = useState([]);
-  const [totalDonate, setTotalDonate] = useState(0);
-  const [myDonate, setMyDonate] = useState(0);
-  useEffect(() => {
-    const lsData = getDataFromLS();
-    const filteredData = allData.filter((data) =>
-      lsData.includes(data.id.toString())
-    );
-    setDonateData(filteredData);
-    let total=0;
-
-    allData.map(data=>total+=parseFloat(data.price))
-    setTotalDonate(total)
-
-    let myDonatedTotal=0;
-    donateData.map(data=>myDonatedTotal+=data.price)
-    setMyDonate(myDonatedTotal)
-
-
-  }, [allData,donateData]);
-  console.log(totalDonate,myDonate);
-
-// reachart sshart
-
-    const data = [
-        
-        { name: 'Total Donation', value:totalDonate },
-        { name: 'Your Donation', value: myDonate },
-      ];
-      
-    const color = ['#00C49F', '#FF444A'];
-   
+const color = ['#00C49F', '#FF444A'];
+const RADIAN = Math.PI / 180;
+const CustomLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
+  const radius = innerRadius + (outerRadius - innerRadius) * 0.7; 
+  const x = cx + radius * Math.cos(-midAngle * RADIAN);
+  const y = cy + radius * Math.sin(-midAngle * RADIAN);
 
   return (
-    <div className="w-4/5 m-auto flex justify-center items-center" >
-      <PieChart width={400} height={350}>
-      <Pie
-        dataKey="value"
-        data={data}
-        cx={200}
-        cy={200}
-        labelLine={false}
-        outerRadius={80}
-        fill="#8884d8"
-      
-        
-      >
-        {data.map((entry, index) => (
-          <Cell key={`cell-${index}`} fill={color[index % color.length]} />
-        ))}
+    <text x={x} y={y} fill="white" textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="central">
+      {`${(percent * 100).toFixed(0)}%`}
+    </text>
+  );
+};
 
+const Statistics = () => {
+  const [totalDonate, setTotalDonate] = useState(12);
+  const [myDonate, setMyDonate] = useState(0);
 
+  useEffect(() => {
+    const lsData = getDataFromLS();
+    setMyDonate(lsData.length); 
+  }, []);
 
-        
-      </Pie>
-      <Legend />
-      <Tooltip />
-    </PieChart>
+  const totalPercentage = totalDonate > 0 ? (totalDonate / totalDonate) * 100 : 0;
+  const myPercentage = totalDonate > 0 ? (myDonate / totalDonate) * 100 : 0;
+
+  const differencePercentage = totalPercentage - myPercentage;
+
+  const data = [
+    { name: 'Total Donation', value: differencePercentage },
+    { name: 'My Donation', value: myPercentage },
+  ];
+
+  return (
+    <div className="w-4/5 m-auto flex justify-center items-center">
+      <PieChart width={400} height={380}>
+        <Pie
+          dataKey="value"
+          data={data}
+          cx={200}
+          cy={200}
+          labelLine={false}
+          outerRadius={120}
+          fill="#8884d8"
+          label={CustomLabel}
+        >
+          {data.map((entry, index) => (
+            <Cell key={`cell-${index}`} fill={color[index % color.length]} />
+          ))}
+        </Pie>
+        <Legend />
+        <Tooltip />
+      </PieChart>
     </div>
   );
 };
