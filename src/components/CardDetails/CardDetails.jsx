@@ -19,8 +19,7 @@ const CardDetails = () => {
         setDataToLS(id)
 
     }
-    console.log(allData,id);
-    console.log(data);
+    
     return (
         <div className='w-4/5 m-auto mb-10 '>
             <div>

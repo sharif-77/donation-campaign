@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { PieChart, Pie, Cell, Legend, Tooltip } from 'recharts'; 
 import { getDataFromLS } from '../../utils/localstorage';
+import { useLoaderData } from 'react-router-dom';
 const color = ['#00C49F', '#FF444A'];
 const RADIAN = Math.PI / 180;
 const CustomLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
@@ -18,13 +19,15 @@ const CustomLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, inde
 };
 
 const Statistics = () => {
-  const [totalDonate, setTotalDonate] = useState(12);
+  const allData=useLoaderData()
+  const [totalDonate, setTotalDonate] = useState(0);
   const [myDonate, setMyDonate] = useState(0);
 
   useEffect(() => {
     const lsData = getDataFromLS();
-    setMyDonate(lsData.length); 
-  }, []);
+    setMyDonate(lsData.length);
+    setTotalDonate(allData.length)
+  }, [allData]);
 
   const totalPercentage = totalDonate > 0 ? (totalDonate / totalDonate) * 100 : 0;
   const myPercentage = totalDonate > 0 ? (myDonate / totalDonate) * 100 : 0;
