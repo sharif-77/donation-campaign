@@ -15,7 +15,7 @@ const HomeCard = ({ data }) => {
             background: `${card_bg}`
 
         }
-      } className="card card-compact  bg-base-100 shadow-xl">
+      } className="card card-compact  bg-base-100 shadow-xl min-h-[250px] ">
         <figure>
           <img src={data.image} alt="Shoes" />
         </figure>
@@ -41,7 +41,7 @@ const HomeCard = ({ data }) => {
 
 
             }
-          } className="card-title">{data.title}</h2>
+          } className="card-title ">{data.title}</h2>
         </div>
       </div>
     </div>
