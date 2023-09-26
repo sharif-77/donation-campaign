@@ -31,7 +31,7 @@ const DonationDetails = () => {
           clicked && "hidden"
         }`}
       >
-        {donateData.length >= 4 && (
+        {donateData.length > 4 && (
           <button
             onClick={() => setClicked(true)}
             className="m-auto btn bg-green-600 text-white font-bold py-2 px-5"

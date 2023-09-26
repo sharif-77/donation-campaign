@@ -3,6 +3,6 @@
 
 - You can donate as your wish after seeing Category.
 - Clicking on Card You will able to see Details about the Donate card.
-- Donator can see in Chart How many Percentage He Donated.
+- You can see in Chart How many Percentage You have Donated.
  
 

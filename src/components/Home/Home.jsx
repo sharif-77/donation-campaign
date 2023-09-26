@@ -19,8 +19,7 @@ const Home = () => {
    }
 
   }
-  console.log(allData);
-  console.log(searchData);
+ 
   return (
     <div>
       <div className="my-10">
