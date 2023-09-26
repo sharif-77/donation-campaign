@@ -62,7 +62,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className="w-4/5 m-auto mt-[70vh] md:mt-[55vh] ">
+      <div className="w-4/5 m-auto mt-[60vh] md:mt-[55vh] ">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 my-5">
 
           {
